@@ -16,7 +16,7 @@ function App() {
             alignItems: "center",
             justifyContent: "flex-end",
             flexDirection: "column",
-            margin: 20
+            margin: 20.5
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
