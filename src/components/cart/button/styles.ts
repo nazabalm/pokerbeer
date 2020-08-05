@@ -10,6 +10,7 @@ const useStyles = createUseStyles({
     border: 'none',
     outline: 'none',
     padding: 0,
+    tapHighlightColor: 'rgba(0,0,0,0)',
     '&:active': {
       outline: 'none'
     },
