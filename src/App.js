@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import Header from "components/header";
+import Header from "components/Header";
+import Cart from "components/Cart";
 
 
 function App() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  console.log('isCartOpen', isCartOpen)
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <Header onCartPress={() => setIsCartOpen(prevState => !prevState)} />
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)}/>
+    </>
   );
 }
 

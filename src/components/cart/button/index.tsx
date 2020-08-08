@@ -9,7 +9,7 @@ interface CartButtonProps {
 
 const CartButton = ({ icon, iconHover, onClick }: CartButtonProps) => {
   const classes = useStyles();
-  return <button className={classes.button}>
+  return <button className={classes.button} onClick={onClick}>
     <img src={icon} alt="cart" className={classes.icon} />
     <img src={iconHover} alt="cart" className={classes.iconHover} />
   </button>
