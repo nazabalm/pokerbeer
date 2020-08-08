@@ -1,7 +1,5 @@
 import { createUseStyles } from 'react-jss';
 
-
-
 const useStyles = createUseStyles({
   button: {
     position: 'relative',
