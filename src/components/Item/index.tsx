@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Product from 'components/Product';
 import { Button, NumberButton } from 'components/common';
+import useStyles from './styles';
 
 interface ItemProps {
   product: ProductType;
@@ -9,7 +10,8 @@ interface ItemProps {
 
 const Item = ({ product, addItem }: ItemProps) => {
   const [quantity, setQuantity] = useState(1);
-  return <div>
+  const classes = useStyles();
+  return <div className={classes.container}>
     <Product product={product} />
     <NumberButton initialValue={quantity} onChangeValue={setQuantity} />
     <Button text={"Agregar al carrito"} onClick={() => addItem({ product, quantity })} />

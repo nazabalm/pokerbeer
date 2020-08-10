@@ -7,7 +7,7 @@ import { addItem } from 'slices/Orders';
 const Products = () => {
   const products = useSelector(getProductsSelector);
   const dispatch = useDispatch();
-  return <>{products.map(product => <Product key={product.id} product={product} addItem={(item) => dispatch(addItem(item))} />)}</>
+  return <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', }}>{products.map(product => <Product key={product.id} product={product} addItem={(item) => dispatch(addItem(item))} />)}</div>
 }
 
 export default Products;

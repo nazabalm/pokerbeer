@@ -24,7 +24,7 @@ const Item = ({ item }: ItemProps) => {
 const Items = ({ items }: ItemsProps) => {
   return (
     <>
-      {items.map(item => <Item key={item.id} item={item} />)}
+      {items.map(item => <Item key={`${item.id}${item.quantity}`} item={item} />)}
     </>
   )
 }
