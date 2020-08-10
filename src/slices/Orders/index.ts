@@ -1,33 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 } from 'uuid';
 
-const beer = require('assets/beer.jpg');
-
 interface OrdersState {
   orders: OrderType[];
   selectedOrder?: OrderType;
 }
 
-const orders = [{
-  id: '1',
-  address: 'Porongos 2979',
-  items: [{
-    id: '1',
-    product: {
-      id: '1',
-      name: 'Poker Beer IPA',
-      price: 150,
-      image: beer,
-      description: 'Una cerveza que te va cambiar la birra.',
-    },
-    quantity: 3,
-  }],
-  total: 450,
-}];
-
 export const initialState: OrdersState = {
-  orders,
-  selectedOrder: orders[0]
+  orders: [],
 };
 
 export const ordersSlice = createSlice({

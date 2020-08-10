@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   container: {
-    position: 'absolute',
+    position: 'fixed',
     display: 'flex',
     justifyContent: 'flex-end',
     height: '100%',

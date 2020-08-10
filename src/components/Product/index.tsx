@@ -1,4 +1,5 @@
 import React from 'react';
+import useStyles from './styles';
 
 // TODO: Show product details
 
@@ -17,9 +18,15 @@ interface ProductProps {
 }
 
 const Product = ({ product }: ProductProps) => {
+  const classes = useStyles();
   return (
-    <div>
-
+    <div className={classes.container}>
+      <img src={product.image} alt={product.name} className={classes.image} />
+      <div className={classes.data}>
+        <p>{product.name}</p>
+        <p>{product.description}</p>
+        <p>${product.price}</p>
+      </div>
     </div>
   )
 }

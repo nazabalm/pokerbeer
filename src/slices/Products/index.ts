@@ -5,7 +5,7 @@ interface ProductsState {
   selectedProduct?: ProductType;
 }
 
-const beer = require('assets/beer.jpg');
+const beer = require('assets/beer.png');
 
 export const initialState: ProductsState = {
   products: [
@@ -14,7 +14,7 @@ export const initialState: ProductsState = {
       name: 'Poker Beer IPA',
       price: 150,
       image: beer,
-      description: 'Una cerveza que te va cambiar la birra.',
+      description: '5.0% Vol. - 500ml',
     }
   ] as ProductType[],
 };
@@ -33,6 +33,8 @@ export const productsSlice = createSlice({
 });
 
 export const { getProducts, selectProduct } = productsSlice.actions;
+
+export const getProductsSelector = (state: RootState) => state.productsState.products;
 
 export const getProduct = (productId: string, state: RootState) => state.productsState.products.find(product => product.id === productId)
 
