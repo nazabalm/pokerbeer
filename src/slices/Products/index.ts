@@ -15,6 +15,13 @@ export const initialState: ProductsState = {
       price: 150,
       image: beer,
       description: '5.0% Vol. - 500ml',
+    },
+    {
+      id: '2',
+      name: 'Poker Beer Blonde',
+      price: 150,
+      image: beer,
+      description: '5.0% Vol. - 500ml',
     }
   ] as ProductType[],
 };

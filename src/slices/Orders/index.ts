@@ -34,7 +34,10 @@ export const ordersSlice = createSlice({
       const newItem = { ...action.payload, id: v4() };
       const subtotal = newItem.product.price * newItem.quantity;
       if (state.selectedOrder) {
-        state.selectedOrder.items.push(newItem);
+        if (state.selectedOrder.items.find(item => item.product.id === action.payload.product.id))
+          state.selectedOrder.items = state.selectedOrder.items.map(item => item.product.id === action.payload.product.id ? { ...item, quantity: action.payload.quantity + item.quantity } : { ...item })
+        else
+          state.selectedOrder.items.push(newItem);
         state.selectedOrder.total += subtotal;
       }
       else {
