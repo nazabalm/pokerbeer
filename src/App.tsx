@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "components/Header";
 import Cart from "components/Cart";
 import { getSelectedOrder } from "slices/Orders";
+import Products from "layouts/Products";
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
   return (
     <>
       <Header onCartPress={() => setIsCartOpen(prevState => !prevState)} />
-      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} items={selectedOrder?.items || []} />
+      <Products />
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} order={selectedOrder} />
     </>
   );
 }

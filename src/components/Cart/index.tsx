@@ -9,10 +9,10 @@ const closeIcon = require("assets/closeIcon.png")
 interface CartProps {
   isOpen: boolean;
   onClose: () => void;
-  items: ItemType[];
+  order?: OrderType;
 }
 
-const Cart = ({ isOpen, onClose, items }: CartProps) => {
+const Cart = ({ isOpen, onClose, order }: CartProps) => {
   const classes = useStyles();
 
   // TODO: Add items to reducer and use selector to get them
@@ -23,15 +23,15 @@ const Cart = ({ isOpen, onClose, items }: CartProps) => {
     <div className={`${classes.cart} ${!isOpen && classes.closeTransition}`}>
       {isOpen && <>
         <button onClick={onClose} className={classes.closeButton}><img src={closeIcon} alt="close icon" className={classes.closeIcon} /></button>
-        <div className={classes.cartContent}>
+        {order && <div className={classes.cartContent}>
           <div>
-            <Items items={items} />
-            <p className={classes.total}>$900</p>
+            <Items items={order.items} />
+            <p className={classes.total}>${order.total}</p>
           </div>
           <div className={classes.cartFooter}>
             <Button text="Comprar" onClick={() => { }} />
           </div>
-        </div>
+        </div>}
       </>
       }
     </div>
