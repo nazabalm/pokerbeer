@@ -4,6 +4,8 @@ const useStyles = createUseStyles({
     logo: {
       width: 60,
       height: 'auto',
+      borderRadius: '50%',
+      backgroundColor: 'white',
     },
 
     container: {
@@ -11,7 +13,8 @@ const useStyles = createUseStyles({
       display: 'flex',
       justifyContent: 'space-between',
       padding: 30,
-      boxShadow: '3px 5px 22px -17px rgba(0,0,0,0.75)'
+      paddingBottom: 0,
+      backgroundColor: 'transparent',
     },
 
     cart: {
