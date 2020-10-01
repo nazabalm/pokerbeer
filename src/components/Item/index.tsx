@@ -15,7 +15,7 @@ const Item = ({ product, addItem }: ItemProps) => {
     <button className={classes.info}>i</button>
     <Product product={product} />
     <div className={classes.footer}>
-      <Button text={"Agregar al carrito"} onClick={() => { }} />
+      <Button text={"Agregar al carrito"} onClick={() => { addItem({ product, quantity: 1 }) }} />
     </div>
   </div>
 }
