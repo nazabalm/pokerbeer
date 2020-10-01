@@ -53,14 +53,21 @@ export const ordersSlice = createSlice({
 
       state.orders = state.orders.map(order => order.id === state.selectedOrder?.id ? state.selectedOrder : order)
     },
-    setCartStatus: (state, action: PayloadAction<'open' | 'closed'>) => {
-      state.cartStatus = action.payload
+    editItem: (state, action: PayloadAction<ItemType>) => {
+      if(state.selectedOrder)
+      state.selectedOrder ={...state.selectedOrder, items: state.selectedOrder.items.map(item => 
+        item.id === action.payload.id ? action.payload : item
+      )}
+      state.orders = state.orders.map(order => order.id === state.selectedOrder?.id ? state.selectedOrder : order)
+    },
+    setCartStatus: (state) => {
+      state.cartStatus = state.cartStatus === 'closed' ? 'open' : 'closed'
     },
 
   }
 });
 
-export const { getOrders, selectOrder, createOrder, addItem, setCartStatus } = ordersSlice.actions;
+export const { getOrders, selectOrder, createOrder, addItem, setCartStatus, editItem } = ordersSlice.actions;
 
 export const getOrder = (orderId: string, state: RootState) => state.ordersState.orders.find(order => order.id === orderId);
 export const getSelectedOrder = (state: RootState) => state.ordersState.selectedOrder;

@@ -18,7 +18,7 @@ const Products = () => {
           product={product}
           addItem={(item) => {
             dispatch(addItem(item));
-            dispatch(setCartStatus('open'));
+            dispatch(setCartStatus());
           }}
         />
       ))}
