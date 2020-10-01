@@ -3,11 +3,13 @@ import { v4 } from 'uuid';
 
 interface OrdersState {
   orders: OrderType[];
+  cartStatus: 'open' | 'closed';
   selectedOrder?: OrderType;
 }
 
 export const initialState: OrdersState = {
   orders: [],
+  cartStatus: 'closed'
 };
 
 export const ordersSlice = createSlice({
@@ -50,13 +52,19 @@ export const ordersSlice = createSlice({
       }
 
       state.orders = state.orders.map(order => order.id === state.selectedOrder?.id ? state.selectedOrder : order)
-    }
-  },
+    },
+    setCartStatus: (state, action: PayloadAction<'open' | 'closed'>) => {
+      state.cartStatus = action.payload
+    },
+
+  }
 });
 
-export const { getOrders, selectOrder, createOrder, addItem } = ordersSlice.actions;
+export const { getOrders, selectOrder, createOrder, addItem, setCartStatus } = ordersSlice.actions;
 
 export const getOrder = (orderId: string, state: RootState) => state.ordersState.orders.find(order => order.id === orderId);
 export const getSelectedOrder = (state: RootState) => state.ordersState.selectedOrder;
+
+export const getCartStatus = (state: RootState) => state.ordersState.cartStatus;
 
 export default ordersSlice.reducer;

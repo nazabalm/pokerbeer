@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import ProductItem from "components/Item";
-import { addItem } from "slices/Orders";
+import { addItem, setCartStatus } from "slices/Orders";
 import { getProductsSelector } from "slices/Products";
 
 const Products = () => {
@@ -16,7 +16,10 @@ const Products = () => {
         <ProductItem
           key={product.id}
           product={product}
-          addItem={(item) => dispatch(addItem(item))}
+          addItem={(item) => {
+            dispatch(addItem(item));
+            dispatch(setCartStatus('open'));
+          }}
         />
       ))}
     </div>
