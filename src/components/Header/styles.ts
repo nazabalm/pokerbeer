@@ -2,8 +2,8 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     logo: {
-      width: 60,
-      height: 'auto',
+      height: 60,
+      width: 'auto',
       borderRadius: '50%',
       backgroundColor: 'white',
     },
@@ -12,9 +12,10 @@ const useStyles = createUseStyles({
       maxWidth: '100%',
       display: 'flex',
       justifyContent: 'space-between',
-      padding: 30,
       paddingBottom: 0,
       backgroundColor: 'transparent',
+      alignItems: 'center',
+      padding: 20,
     },
 
     cart: {
@@ -25,7 +26,25 @@ const useStyles = createUseStyles({
         opacity: '0.5',
         transform: 'scale(1.2)'
       }
-    }
+    },
+
+  title: { 
+    color: 'white', 
+    fontSize: 60, 
+    margin: 0, 
+    textAlign: 'center' 
+  },
+
+  subtitle: { 
+    color: 'white', 
+    fontSize: 20, 
+    margin: 0, 
+    textAlign: 'center' 
+  },
+
+  text: {
+    flex: 1,
+  }
 });
 
 export default useStyles;

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import Product from 'components/Product';
-import { Button, NumberButton } from 'components/common';
+import React from 'react';
+
 import useStyles from './styles';
+import Product from 'components/Product';
+import { Button } from 'components/common';
 
 interface ItemProps {
   product: ProductType;
@@ -9,12 +10,13 @@ interface ItemProps {
 }
 
 const Item = ({ product, addItem }: ItemProps) => {
-  const [quantity, setQuantity] = useState(1);
   const classes = useStyles();
   return <div className={classes.container}>
+    <button className={classes.info}>i</button>
     <Product product={product} />
-    <NumberButton initialValue={quantity} onChangeValue={setQuantity} />
-    <Button text={"Agregar al carrito"} onClick={() => addItem({ product, quantity })} />
+    <div className={classes.footer}>
+      <Button text={"Agregar al carrito"} onClick={() => { }} />
+    </div>
   </div>
 }
 

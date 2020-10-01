@@ -5,7 +5,8 @@ interface ProductsState {
   selectedProduct?: ProductType;
 }
 
-const beer = require('assets/beer.png');
+const blonde = require('assets/blondeSinFondo.png');
+const ipa = require('assets/ipaSinFondo.png');
 
 export const initialState: ProductsState = {
   products: [
@@ -13,16 +14,16 @@ export const initialState: ProductsState = {
       id: '1',
       name: 'Poker Beer IPA',
       price: 150,
-      image: beer,
-      description: '5.0% Vol. - 500ml',
+      image: ipa,
+      description: '5.0% vol',
     },
     {
       id: '2',
       name: 'Poker Beer Blonde',
       price: 150,
-      image: beer,
-      description: '5.0% Vol. - 500ml',
-    }
+      image: blonde,
+      description: '5.0% vol',
+    },
   ] as ProductType[],
 };
 
