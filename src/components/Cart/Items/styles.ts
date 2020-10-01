@@ -10,6 +10,9 @@ const useStyles = createUseStyles({
     alignItems: 'center',
     margin: 10,
     padding: 7,
+    '& p': {
+      color: 'black',
+    }
   },
 
   image: {

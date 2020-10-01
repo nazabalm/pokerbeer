@@ -8,6 +8,7 @@ const useStyles = createUseStyles({
     height: '100%',
     top: 0,
     right: 0,
+    color: 'black',
   },
 
   outer: {
