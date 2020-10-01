@@ -22,10 +22,10 @@ const Product = ({ product }: ProductProps) => {
   return (
     <div className={classes.container}>
       <img src={product.image} alt={product.name} className={classes.image} />
+      <p className={classes.name}>{product.name}</p>
       <div className={classes.data}>
-        <p>{product.name}</p>
-        <p>{product.description}</p>
         <p>${product.price}</p>
+        <p className={classes.description}>{product.description}</p>
       </div>
     </div>
   )

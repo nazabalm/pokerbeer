@@ -1,15 +1,17 @@
 import React from 'react';
 import useStyles from './styles';
 
-const beer = require('assets/beerGlass.png')
+import Product from 'components/Product';
 
-function Products() {
+function Products({ products }: { products: ProductType[] }) {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <p className={classes.text}>Blonde</p>
-      <img src={beer} className={classes.image} alt="beer" />
-      <p className={classes.text}>IPA</p>
+      {
+        products.map(product => (
+          <Product product={product} key={product.id} />
+        ))
+      }
     </div>
   )
 }
