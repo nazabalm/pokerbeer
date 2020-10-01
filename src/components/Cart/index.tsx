@@ -10,9 +10,10 @@ interface CartProps {
   isOpen: boolean;
   onClose: () => void;
   order?: OrderType;
+  onEditItem: (item: ItemType) => void;
 }
 
-const Cart = ({ isOpen, onClose, order }: CartProps) => {
+const Cart = ({ isOpen, onClose, order, onEditItem }: CartProps) => {
   const classes = useStyles();
 
   // TODO: Add items to reducer and use selector to get them
@@ -25,7 +26,7 @@ const Cart = ({ isOpen, onClose, order }: CartProps) => {
         <button onClick={onClose} className={classes.closeButton}><img src={closeIcon} alt="close icon" className={classes.closeIcon} /></button>
         {order && <div className={classes.cartContent}>
           <div>
-            <Items items={order.items} />
+            <Items items={order.items} onEditItem={onEditItem} />
             <p className={classes.total}>${order.total}</p>
           </div>
           <div className={classes.cartFooter}>
