@@ -42,6 +42,27 @@ const useStyles = createUseStyles({
     backgroundColor: 'white',
       transform: 'scale(1.2)'
     }
+  },
+
+  containerDetails: {
+    display: 'flex',
+    borderRadius: 20,
+    padding: 20,
+    backgroundColor: '#1f1f1f',
+  },
+
+  data: {
+    color: 'white',
+    maxWidth: 300,
+  },
+
+  image: {
+    height: 400,
+    width: 'auto',
+  },
+
+  price: {
+    fontSize: 32,
   }
 });
 
