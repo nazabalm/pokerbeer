@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 
@@ -11,7 +11,13 @@ const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
   const products = useSelector(getProductsSelector);
   const dispatch = useDispatch();
-  console.log('sle', selectedProduct)
+
+  const addProductItem = useCallback((item) => {
+    setSelectedProduct(null);
+    dispatch(addItem(item));
+    dispatch(setCartStatus());
+  }, [dispatch])
+
   return (
     <div
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
@@ -22,16 +28,18 @@ const Products = () => {
             key={product.id}
             product={product}
             onClick={setSelectedProduct}
-            addItem={(item) => {
-              dispatch(addItem(item));
-              dispatch(setCartStatus());
-            }}
+            addItem={addProductItem}
           />
         ))}
         <AnimatePresence>
-          {selectedProduct && <ModalContainer>
-            <ProductItemDetails product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-          </ModalContainer>}
+          {selectedProduct && (
+            <ModalContainer>
+              <ProductItemDetails
+                product={selectedProduct}
+                onClose={() => setSelectedProduct(null)}
+                addItem={addProductItem}
+              />
+            </ModalContainer>)}
         </AnimatePresence>
       </AnimateSharedLayout>
     </div>

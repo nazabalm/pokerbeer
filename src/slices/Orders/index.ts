@@ -67,12 +67,12 @@ export const ordersSlice = createSlice({
         order.id === state.selectedOrder?.id ? state.selectedOrder : order
       );
     },
-    editItem: (state, action: PayloadAction<ItemType>) => {
+    editItem: (state, action: PayloadAction<{oldItem: ItemType, newItem: ItemType}>) => {
       if (state.selectedOrder)
         state.selectedOrder = {
           ...state.selectedOrder,
           items: state.selectedOrder.items.map((item) =>
-            item.id === action.payload.id ? action.payload : item
+            item.id === action.payload.newItem.id ? action.payload.newItem : item
           ),
         };
       state.orders = state.orders.map((order) =>

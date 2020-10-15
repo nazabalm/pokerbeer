@@ -5,6 +5,8 @@ import useStyles from './styles';
 import Product from 'components/Product';
 import { Button } from 'components/common';
 
+const closeIcon = require('assets/closeIconWhite.png');
+
 interface ItemProps {
   product: ProductType;
   onClick: (product: ProductType) => void;
@@ -16,7 +18,6 @@ const Item = ({ product, addItem, onClick }: ItemProps) => {
   return <motion.div
     layoutId={product.id}
     style={{ cursor: 'pointer' }}
-    onClick={() => onClick(product)}
     whileHover={{
       scale: 1.05,
       transition: { duration: 0.3 },
@@ -34,18 +35,22 @@ const Item = ({ product, addItem, onClick }: ItemProps) => {
 interface ProductItemDetailsProps {
   product: ProductType;
   onClose: () => void;
+  addItem: (item: Pick<ItemType, "product" | "quantity">) => void;
 }
 
-export const ProductItemDetails = ({ product, onClose }: ProductItemDetailsProps) => {
+export const ProductItemDetails = ({ product, onClose, addItem }: ProductItemDetailsProps) => {
   const classes = useStyles();
-  return <motion.div layoutId={product.id} onClick={onClose}>
+  return <motion.div layoutId={product.id}>
     <div className={classes.containerDetails}>
+      <img src={closeIcon} alt="close icon" className={classes.close} onClick={onClose} />
       <img src={product.image} alt={product.name} className={classes.image} />
       <div className={classes.data}>
         <h1>{product.name}</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et purus non enim aliquam gravida. Aenean leo neque, laoreet nec turpis vitae, pretium tristique sapien. Pellentesque imperdiet nibh vitae sollicitudin aliquet.</p>
-        <h1 className={classes.price}>${product.price}</h1>
-        <Button text={"Agregar al carrito"} onClick={onClose} />
+        <div className={classes.footerModal}>
+          <h1 className={classes.price}>${product.price}</h1>
+          <Button text={"Agregar al carrito"} onClick={() => addItem({ product, quantity: 1 })} className={classes.button} />
+        </div>
       </div>
     </div>
   </motion.div>

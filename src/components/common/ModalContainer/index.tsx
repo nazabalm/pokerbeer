@@ -1,7 +1,11 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ModalContainer = ({ children }: { children: JSX.Element }) => {
-  return <div
+  return <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
     style={{
       display: "flex",
       position: "fixed",
@@ -14,7 +18,7 @@ const ModalContainer = ({ children }: { children: JSX.Element }) => {
       justifyContent: 'center',
       alignItems: 'center',
     }}
-  >{children}</div>
+  >{children}</motion.div>
 }
 
 export default ModalContainer;
