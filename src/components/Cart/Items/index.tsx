@@ -4,12 +4,12 @@ import useStyles from './styles';
 
 interface ItemsProps {
   items: ItemType[];
-  onEditItem: (item: ItemType) => void;
+  onEditItem: (oldItem: ItemType, newItem: ItemType) => void;
 }
 
 interface ItemProps {
   item: ItemType;
-  onEdit: (item: ItemType) => void;
+  onEdit: (oldItem: ItemType, newItem: ItemType) => void;
 }
 
 const Item = ({ item, onEdit }: ItemProps) => {
@@ -19,11 +19,11 @@ const Item = ({ item, onEdit }: ItemProps) => {
       <img className={classes.image} src={item.product.image} alt={item.product.name} />
       <p className={classes.name}>{item.product.name}</p>
       <div className={classes.quantityContainer}>
-        <button className={`${classes.quantity} ${classes.left}`} onClick={() => onEdit({ ...item, quantity: item.quantity > 0 ? item.quantity - 1 : 0 })}>-</button>
+        <button className={`${classes.quantity} ${classes.left}`} onClick={() => onEdit(item, { ...item, quantity: item.quantity > 0 ? item.quantity - 1 : 0 })}>-</button>
         <p className={classes.quantityText}>{item.quantity}</p>
-        <button className={`${classes.quantity} ${classes.right}`} onClick={() => onEdit({ ...item, quantity: item.quantity + 1 })}>+</button>
+        <button className={`${classes.quantity} ${classes.right}`} onClick={() => onEdit(item, { ...item, quantity: item.quantity + 1 })}>+</button>
       </div>
-      <p className={classes.price}>${item.product.price}</p>
+      <p className={classes.price}>${item.product.price * item.quantity}</p>
     </div>
   )
 }

@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
   },
 
   outer: {
-    backgroundColor: 'rgba(197,197,197,0.3)',
+    background: "rgba(0,0,0,0.6)",
     flex: 1,
     height: '100%',
   },

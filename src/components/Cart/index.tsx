@@ -10,13 +10,11 @@ interface CartProps {
   isOpen: boolean;
   onClose: () => void;
   order?: OrderType;
-  onEditItem: (item: ItemType) => void;
+  onEditItem: (oldItem: ItemType, newItem: ItemType) => void;
 }
 
 const Cart = ({ isOpen, onClose, order, onEditItem }: CartProps) => {
   const classes = useStyles();
-
-  // TODO: Add items to reducer and use selector to get them
 
   return <div className={`${classes.container} ${isOpen && classes.open}`}>
     <div className={`${classes.outer}`} onClick={onClose}>

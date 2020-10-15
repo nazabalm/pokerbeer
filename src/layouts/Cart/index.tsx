@@ -9,9 +9,14 @@ const Order = () => {
   const cartStatus = useSelector(getCartStatus);
   const selectedOrder = useSelector(getSelectedOrder);
   return (
-    <Cart isOpen={cartStatus === 'open'} onClose={() => dispatch(setCartStatus())} order={selectedOrder} onEditItem={(item) => {
-      dispatch(editItem(item))
-    }} />
+    <Cart
+      isOpen={cartStatus === 'open'}
+      onClose={() => dispatch(setCartStatus())}
+      order={selectedOrder}
+      onEditItem={(oldItem, newItem) => {
+        dispatch(editItem({ oldItem, newItem }))
+      }}
+    />
   );
 };
 

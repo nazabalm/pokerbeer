@@ -52,8 +52,15 @@ const useStyles = createUseStyles({
   },
 
   data: {
+    display: 'flex',
+    flexDirection: 'column',
     color: 'white',
     maxWidth: 300,
+    textAlign: 'center',
+    margin: 30,
+    '& p': {
+      textAlign: 'justify'
+    }
   },
 
   image: {
@@ -63,7 +70,34 @@ const useStyles = createUseStyles({
 
   price: {
     fontSize: 32,
-  }
+  },
+
+  footerModal: {
+    display: 'flex',
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+  },
+
+  button: {
+    marginRight: 0,
+  },
+
+  close: {
+    width: 15,
+    height: 'auto',
+    opacity: 1,
+    position: 'absolute',
+    cursor: 'pointer',
+    top: 15,
+    right: 15,
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      transform: 'scale(1.2)',
+      opacity: 0.6,
+      transition: 'all 0.3s ease',
+    }
+  },
 });
 
 export default useStyles;

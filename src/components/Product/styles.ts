@@ -10,8 +10,10 @@ const useStyles = createUseStyles({
   },
 
   image: {
-    width: 250,
+    width: 80,
     margin: 10,
+    paddingLeft: 50,
+    paddingRight: 50,
     height: 'auto',
   },
 
