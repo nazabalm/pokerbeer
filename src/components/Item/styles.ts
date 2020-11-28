@@ -6,7 +6,7 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 7,
     backgroundColor: '#1f1f1f',
     margin: 30,
     position: 'relative',
@@ -46,7 +46,7 @@ const useStyles = createUseStyles({
 
   containerDetails: {
     display: 'flex',
-    borderRadius: 20,
+    borderRadius: 7,
     padding: 20,
     backgroundColor: '#1f1f1f',
   },
