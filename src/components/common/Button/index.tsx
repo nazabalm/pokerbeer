@@ -4,7 +4,7 @@ import useStyles from './styles';
 interface ButtonProps {
   text: string;
   className?: string;
-  onClick: () => void;
+  onClick: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const Button = ({ text, onClick, className }: ButtonProps) => {

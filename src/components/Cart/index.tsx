@@ -17,8 +17,7 @@ const Cart = ({ isOpen, onClose, order, onEditItem }: CartProps) => {
   const classes = useStyles();
 
   return <div className={`${classes.container} ${isOpen && classes.open}`}>
-    <div className={`${classes.outer}`} onClick={onClose}>
-    </div>
+    <div className={`${classes.outer}`} onClick={onClose} />
     <div className={`${classes.cart} ${!isOpen && classes.closeTransition}`}>
       {isOpen && <>
         <button onClick={onClose} className={classes.closeButton}><img src={closeIcon} alt="close icon" className={classes.closeIcon} /></button>

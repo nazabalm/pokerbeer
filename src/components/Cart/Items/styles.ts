@@ -36,7 +36,7 @@ const useStyles = createUseStyles({
     border: '1px solid black',
     padding: 0,
     marign: 0,
-    borderRadius: 20,
+    borderRadius: 7,
     alignSelf: 'stretch',
     width: 50,
     alignItems: 'center',
