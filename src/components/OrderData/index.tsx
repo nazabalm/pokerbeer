@@ -38,7 +38,7 @@ type Inputs = {
 
 function OrderData() {
   const classes = useStyles();
-  const { register, handleSubmit, watch, errors } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit = (data: Inputs) => console.log('data', data)
 
