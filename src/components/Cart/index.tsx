@@ -11,9 +11,10 @@ interface CartProps {
   onClose: () => void;
   order?: OrderType;
   onEditItem: (oldItem: ItemType, newItem: ItemType) => void;
+  onBuy: () => void;
 }
 
-const Cart = ({ isOpen, onClose, order, onEditItem }: CartProps) => {
+const Cart = ({ isOpen, onClose, order, onEditItem, onBuy }: CartProps) => {
   const classes = useStyles();
 
   return <div className={`${classes.container} ${isOpen && classes.open}`}>
@@ -27,7 +28,7 @@ const Cart = ({ isOpen, onClose, order, onEditItem }: CartProps) => {
             <p className={classes.total}>${order.total}</p>
           </div>
           <div className={classes.cartFooter}>
-            <Button text="Comprar" onClick={() => { }} />
+            <Button text="Comprar" onClick={onBuy} />
           </div>
         </div>}
       </>

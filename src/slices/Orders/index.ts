@@ -55,12 +55,16 @@ export const ordersSlice = createSlice({
         else state.selectedOrder.items.push(newItem);
         state.selectedOrder.total += subtotal;
       } else {
-        state.selectedOrder = {
+        const newOrder = {
           id: v4(),
           address: "",
           items: [newItem],
           total: subtotal,
         };
+
+        state.selectedOrder = newOrder;
+
+        state.orders.push(state.selectedOrder)
       }
 
       state.orders = state.orders.map((order) =>
@@ -98,6 +102,8 @@ export const getOrder = (orderId: string, state: RootState) =>
   state.ordersState.orders.find((order) => order.id === orderId);
 export const getSelectedOrder = (state: RootState) =>
   state.ordersState.selectedOrder;
+
+  export const getOrdersSelector = (state: RootState) => state.ordersState.orders;
 
 export const getCartStatus = (state: RootState) => state.ordersState.cartStatus;
 
