@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     alignSelf: 'stretch',
     alignItems: 'center',
     margin: 10,
+    marginTop: 0,
     padding: 7,
     '& p': {
       color: 'black',
@@ -18,15 +19,15 @@ const useStyles = createUseStyles({
   image: {
     width: 'auto',
     height: 80,
-    objectFit: 'cover',
   },
 
   price: {
     width: 80,
+    fontSize: 24,
+    fontWeight: 200
   },
 
   name: {
-    marginLeft: 15,
     flex: 1,
   },
 
@@ -58,6 +59,7 @@ const useStyles = createUseStyles({
     borderTop: '1px solid black',
     borderBottom: '1px solid black',
     margin: 0,
+    background: 'white',
     alignSelf: 'stretch',
   },
 
@@ -73,6 +75,12 @@ const useStyles = createUseStyles({
     alignItems: 'center',
     flex: 1,
   },
+
+  center: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  }
 });
 
 export default useStyles;
