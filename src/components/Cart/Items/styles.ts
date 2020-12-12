@@ -1,49 +1,50 @@
-import { createUseStyles } from 'react-jss';
-import theme from 'theme';
+import { createUseStyles } from "react-jss";
+import theme from "theme";
 
 const useStyles = createUseStyles({
   container: {
-    display: 'flex',
+    display: "flex",
     borderBottom: `1px solid ${theme.palette.black[300]}`,
-    justifyContent: 'space-between',
-    alignSelf: 'stretch',
-    alignItems: 'center',
+    justifyContent: "space-between",
+    alignSelf: "stretch",
+    alignItems: "center",
     margin: 10,
+    marginTop: 0,
     padding: 7,
-    '& p': {
-      color: 'black',
-    }
+    "& p": {
+      color: "black",
+    },
   },
 
   image: {
-    width: 'auto',
+    width: "auto",
     height: 80,
-    objectFit: 'cover',
   },
 
   price: {
     width: 80,
+    fontSize: 24,
+    fontWeight: 200,
   },
 
   name: {
-    marginLeft: 15,
     flex: 1,
   },
 
   quantity: {
-    cursor: 'pointer',
-    background: 'white',
-    border: '1px solid black',
+    cursor: "pointer",
+    background: "white",
+    border: "1px solid black",
     padding: 0,
     marign: 0,
     borderRadius: 7,
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
     width: 50,
-    alignItems: 'center',
-    outline: 'none',
-    '&:active': {
-      outline: 'none',
-    }
+    alignItems: "center",
+    outline: "none",
+    "&:active": {
+      outline: "none",
+    },
   },
 
   left: {
@@ -52,13 +53,14 @@ const useStyles = createUseStyles({
     borderRightWidth: 0,
   },
 
-  quantityText:{
-    display: 'flex', 
-    alignItems: 'center',
-    borderTop: '1px solid black',
-    borderBottom: '1px solid black',
+  quantityText: {
+    display: "flex",
+    alignItems: "center",
+    borderTop: "1px solid black",
+    borderBottom: "1px solid black",
     margin: 0,
-    alignSelf: 'stretch',
+    background: "white",
+    alignSelf: "stretch",
   },
 
   right: {
@@ -68,10 +70,16 @@ const useStyles = createUseStyles({
   },
 
   quantityContainer: {
-    display: 'flex',
+    display: "flex",
     height: 25,
-    alignItems: 'center',
+    alignItems: "center",
     flex: 1,
+  },
+
+  center: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 });
 
