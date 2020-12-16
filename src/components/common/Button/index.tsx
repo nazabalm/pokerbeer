@@ -1,16 +1,26 @@
-import React from 'react';
-import useStyles from './styles';
+import React from "react";
+import useStyles from "./styles";
 
-interface ButtonProps {
+export interface ButtonProps {
   text: string;
-  style?: React.CSSProperties;
+  style?: "primary" | "secondary";
+  size?: "large" | "small";
   className?: string;
   onClick: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Button = ({ text, onClick, className, style }: ButtonProps) => {
+const Button = ({ text, onClick, className, style, size }: ButtonProps) => {
   const classes = useStyles();
-  return <button style={style} className={`${classes.button} ${className}`} onClick={onClick}>{text}</button>
-}
+  return (
+    <button
+      className={`${classes.button} ${style && classes[style]} ${
+        size && classes[size]
+      }  ${className}`}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+};
 
 export default Button;
