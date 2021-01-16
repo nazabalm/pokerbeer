@@ -23,21 +23,20 @@ const Item = ({ product, addItem, onClick }: ItemProps) => {
         scale: 1.05,
         transition: { duration: 0.3 },
       }}
+      className={classes.container}
     >
-      <div className={classes.container}>
-        <button className={classes.info} onClick={() => onClick(product)}>
-          i
-        </button>
-        <Product product={product} />
-        <div className={classes.footer}>
-          <Button
-            text={"Agregar al carrito"}
-            themed="primary"
-            onClick={() => {
-              addItem({ product, quantity: 1 });
-            }}
-          />
-        </div>
+      <button className={classes.info} onClick={() => onClick(product)}>
+        i
+      </button>
+      <Product product={product} />
+      <div className={classes.footer}>
+        <Button
+          text={"Agregar al carrito"}
+          themed="primary"
+          onClick={() => {
+            addItem({ product, quantity: 1 });
+          }}
+        />
       </div>
     </motion.div>
   );
@@ -56,32 +55,36 @@ export const ProductItemDetails = ({
 }: ProductItemDetailsProps) => {
   const classes = useStyles();
   return (
-    <motion.div layoutId={product.id}>
-      <div className={classes.containerDetails}>
-        <img
-          src={closeIcon}
-          alt="close icon"
-          className={classes.close}
-          onClick={onClose}
-        />
-        <img src={product.image} alt={product.name} className={classes.image} />
-        <div className={classes.data}>
-          <h1>{product.name}</h1>
+    <motion.div layoutId={product.id} className={classes.containerDetails}>
+      <img
+        src={closeIcon}
+        alt="close icon"
+        className={classes.close}
+        onClick={onClose}
+      />
+      <div className={classes.data}>
+        <h1>{product.name}</h1>
+        <div className={classes.imageDescription}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className={classes.image}
+          />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
             purus non enim aliquam gravida. Aenean leo neque, laoreet nec turpis
             vitae, pretium tristique sapien. Pellentesque imperdiet nibh vitae
             sollicitudin aliquet.
           </p>
-          <div className={classes.footerModal}>
-            <h1 className={classes.price}>${product.price}</h1>
-            <Button
-              text={"Agregar al carrito"}
-              themed="primary"
-              onClick={() => addItem({ product, quantity: 1 })}
-              className={classes.button}
-            />
-          </div>
+        </div>
+        <div className={classes.footerModal}>
+          <h1 className={classes.price}>${product.price}</h1>
+          <Button
+            text={"Agregar al carrito"}
+            themed="primary"
+            onClick={() => addItem({ product, quantity: 1 })}
+            className={classes.button}
+          />
         </div>
       </div>
     </motion.div>

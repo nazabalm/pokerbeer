@@ -27,6 +27,8 @@ function App() {
           alignSelf: "stretch",
           display: "flex",
           justifyContent: "center",
+          paddingTop: 20,
+          paddingBottom: 20,
         }}
       >
         <Switch>
