@@ -8,12 +8,15 @@ const useStyles = createUseStyles({
     backgroundColor: "white",
   },
 
+  header: {
+    width: "100%",
+    overflow: "hidden",
+  },
+
   container: {
-    maxWidth: "100%",
+    zIndex: 100,
     display: "flex",
     justifyContent: "space-between",
-    paddingBottom: 0,
-    backgroundColor: "transparent",
     alignItems: "center",
     padding: 20,
   },
