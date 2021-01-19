@@ -1,27 +1,28 @@
-import CartButton from 'components/Cart/Button';
-import React from 'react';
-import useStyles from './styles';
+import React from "react";
 
-const logo = require('assets/logo.png')
-const icon = require('assets/cartEmpty.png');
-const iconHover = require('assets/cartEmptyHover.png');
+import useStyles from "./styles";
+import CartButton from "layouts/Cart/Button";
 
 interface HeaderProps {
-  onCartPress?: () => void;
+  logo: string;
+  title: string;
+  subtitle: string;
 }
 
-const Header = ({ onCartPress }: HeaderProps) => {
+const Header = ({ logo, title, subtitle }: HeaderProps) => {
   const classes = useStyles();
   return (
-    <header className={classes.container}>
-      <img src={logo} alt="logo" className={classes.logo} />
-      <div className={classes.text}>
-        <p className={classes.title}>POKER BEER</p>
-        <p className={classes.subtitle}>Una cerveza que te va cambiar la birra.</p>
+    <header className={classes.header}>
+      <div className={classes.container}>
+        <img src={logo} alt="logo" className={classes.logo} />
+        <div className={classes.text}>
+          <p className={classes.title}>{title}</p>
+          <p className={classes.subtitle}>{subtitle}</p>
+        </div>
+        <CartButton />
       </div>
-      <CartButton onClick={onCartPress} iconHover={iconHover} icon={icon} />
     </header>
   );
-}
+};
 
 export default Header;

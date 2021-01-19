@@ -1,84 +1,61 @@
-import { createUseStyles } from 'react-jss';
+import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   container: {
-    position: 'fixed',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    height: '100%',
+    position: "fixed",
+    display: "flex",
+    justifyContent: "flex-end",
+    height: "100%",
     top: 0,
     right: 0,
-    color: 'black',
+    color: "black",
+    zIndex: 200,
   },
 
   outer: {
     background: "rgba(0,0,0,0.6)",
     flex: 1,
-    height: '100%',
+    height: "100%",
+    zIndex: 200,
   },
 
   cart: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
     width: 600,
-    backgroundColor: 'white',
-    height: '100%',
-    transition: 'all 0.3s ease',
+    backgroundColor: "white",
+    height: "100%",
+    transition: "all 0.3s ease",
   },
 
   cartContent: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
-    alignSelf: 'stretch',
-    flexDirection: 'column',
+    alignSelf: "stretch",
+    flexDirection: "column",
   },
 
   cartFooter: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
   },
 
   open: {
-    width: '100%',
+    width: "100%",
   },
 
   closeTransition: {
     width: 0,
-    transition: 'width 0.3s ease',
-  },
-
-  closeButton: {
-    cursor: 'pointer',
-    background: 'transparent',
-    border: 'none',
-    outline: 'none',
-    padding: 0,
-    margin: 15,
-    tapHighlightColor: 'rgba(0,0,0,0)',
-    '&:active': {
-      outline: 'none'
-    },
-  },
-
-  closeIcon: {
-    width: 30,
-    height: 'auto',
-    opacity: 1,
-    transition: 'all 0.3s ease',
-    '&:hover': {
-      transform: 'scale(1.2)',
-      opacity: 0.6,
-      transition: 'all 0.3s ease',
-    }
+    transition: "width 0.3s ease",
   },
 
   total: {
     marginRight: 17,
-    textAlign: 'right',
-  }
+    textAlign: "right",
+  },
 });
 
 export default useStyles;

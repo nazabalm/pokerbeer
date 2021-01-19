@@ -1,10 +1,9 @@
-import { createUseStyles } from 'react-jss';
+import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   container: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
 });
 

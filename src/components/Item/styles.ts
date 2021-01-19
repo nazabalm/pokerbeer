@@ -65,7 +65,7 @@ const useStyles = createUseStyles({
   },
 
   image: {
-    width: 100,
+    width: 70,
   },
 
   price: {
